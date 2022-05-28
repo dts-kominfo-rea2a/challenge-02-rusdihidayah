@@ -48,7 +48,36 @@ function lakukanLooping(arrPegawai) {
       Apabila imbang, maka komentar akan berisi:
         "Jumlah Pria dan Wanita berimbang"
   */
+  hasilLooping = [];
+
+  for (let i = 0; i < dataYangAkanDilooping.length; i++) {
+
+    //data looping
+    let looping = "";
+    looping += dataYangAkanDilooping[i].namaDepan + " " + dataYangAkanDilooping[i].namaBelakang;
+
+    //tambahkan kedalam arr (push)
+    hasilLooping.push(looping);
+
+    //menghitung jumlah pria
+    if (dataYangAkanDilooping[i].jenisKelamin === "Male"){
+      jumlahPria += 1;
+    }
+    // menghitung jmlh wanita
+    if (dataYangAkanDilooping[i].jenisKelamin === "Female"){
+      jumlahWanita += 1;
+    }
+  }
+
+
   let komentar = null;
+  if (jumlahPria > jumlahWanita){
+    komentar = "Jumlah Pria lebih banyak dari Wanita";
+  } else if (jumlahPria < jumlahWanita){
+    komentar = "Jumlah Wanita lebih banyak dari Pria";
+  } else if (jumlahPria == jumlahWanita){
+    komentar = "Jumlah Pria dan Wanita berimbang";
+  }
 
   // ! JANGAN DIMODIFIKASI
   return {
